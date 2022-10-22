@@ -12,7 +12,6 @@ struct LandingBigTextView: View {
     
     var body: some View {
         Text(text)
-//            .foregroundColor(Color("textColorLanding"))
             .font(.title)
             .fontWeight(.black)
             .kerning(2)
@@ -23,8 +22,7 @@ struct LandingSmallTextView: View {
     @State var text: String
     
     var body: some View {
-        Text("The easiest way to stay connected with the world")
-//            .foregroundColor(Color("textColorLanding"))
+        Text(text)
             .font(.callout)
     }
 }
