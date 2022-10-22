@@ -9,40 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            BackgroundView()
-            VStack (spacing: 10) {
-                Spacer()
-                WelcomeView()
-                Spacer()
-                ButtonView()
-                
+        NavigationView {
+            ZStack {
+                BackgroundView()
+                VStack {
+                    ImageView()
+                    WelcomeView()
+                    Spacer()
+                    ButtonView()
+                        .padding()
+                    
+                }
             }
-            .padding()
         }
+    }
+}
+
+struct ImageView: View {
+    var body: some View {
+        Image("landingImage")
+            .resizable()
+            .imageScale(.medium)
+            .frame(width: .infinity, height: 400)
+            .edgesIgnoringSafeArea(.top)
+        
     }
 }
 
 struct WelcomeView: View {
     
     var body: some View {
-        Image("logo")
-            .imageScale(.large)
-            .foregroundColor(.accentColor)
-            .frame(width: 92, height: 92)
-            .cornerRadius(50)
-        HStack {
-            Text("Welcome to")
-                .foregroundColor(Color("textColorLanding"))
-            Text("itsNew")
-                .foregroundColor(.orange)
-        }
-        .font(.title2)
-        .bold()
         
-        Text("Stay up to date with latest news around the world").foregroundColor(Color("textColorLanding"))
-            .multilineTextAlignment(.center)
-            .font(.callout)
+        VStack (spacing: 20) {
+            Text("Get Started")
+                .foregroundColor(Color("textColorLanding"))
+                .font(.callout)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 15)
+            Text("Stay up to date with news from all over the world")
+                .foregroundColor(Color("textColorLanding"))
+                .font(.title)
+                .fontWeight(.black)
+                .kerning(2)
+            Text("The easiest way to stay connected with the world")
+                .foregroundColor(Color("textColorLanding"))
+                .font(.callout)
+        }
+        
         
     }
 }
@@ -58,14 +71,16 @@ struct ButtonView: View {
                 .foregroundColor(.white)
                 .bold()
                 .font(.title3)
-            Text("Login")
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(.white)
-                .cornerRadius(10)
-                .foregroundColor(Color("buttonColor"))
-                .bold()
-                .font(.title3)
+            NavigationLink(destination: LoginView()) {
+                Text("Login")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.white)
+                    .cornerRadius(10)
+                    .foregroundColor(Color("buttonColor"))
+                    .bold()
+                    .font(.title3)
+            }
             
         }
     }
