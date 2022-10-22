@@ -30,7 +30,7 @@ struct ImageView: View {
         Image("landingImage")
             .resizable()
             .imageScale(.medium)
-            .frame(width: .infinity, height: 400)
+            .frame(width: UIScreen.main.bounds.width, height: 400)
             .edgesIgnoringSafeArea(.top)
         
     }
@@ -41,19 +41,27 @@ struct WelcomeView: View {
     var body: some View {
         
         VStack (spacing: 20) {
-            Text("Get Started")
+            
+            LandingSmallTextView(text: "Get Started")
                 .foregroundColor(Color("textColorLanding"))
-                .font(.callout)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 15)
-            Text("Stay up to date with news from all over the world")
+                
+            LandingBigTextView(text: "Stay up to date with news from all over the world")
                 .foregroundColor(Color("textColorLanding"))
-                .font(.title)
-                .fontWeight(.black)
-                .kerning(2)
-            Text("The easiest way to stay connected with the world")
+            
+            LandingSmallTextView(text: "The easiest way to stay connected with the world")
                 .foregroundColor(Color("textColorLanding"))
-                .font(.callout)
+            
+//            Text("Get Started")
+//                .foregroundColor(Color("textColorLanding"))
+//                .font(.callout)
+//            Text("Stay up to date with news from all over the world")
+//                .font(.title)
+//                .fontWeight(.black)
+//                .kerning(2)
+//            Text("The easiest way to stay connected with the world")
+//                .font(.callout)
         }
         
         
