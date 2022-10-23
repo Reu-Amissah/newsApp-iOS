@@ -53,6 +53,7 @@ struct WelcomeView: View {
             
             LandingSmallTextView(text: "The easiest way to stay connected with the world")
                 .foregroundColor(Color("textColorLanding"))
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 10)
             
 //            Text("Get Started")
