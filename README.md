@@ -2,7 +2,7 @@
 
 ## Features
 - [x] Landing Page
-- [ ] Login Page
+- [x] Login Page
 - [ ] Register/ Sign In page
 - [ ] Home Page/ Trending
 
