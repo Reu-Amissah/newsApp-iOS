@@ -53,7 +53,6 @@ struct WelcomeView: View {
             
             LandingSmallTextView(text: "The easiest way to stay connected with the world")
                 .foregroundColor(Color("textColorLanding"))
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 10)
             
 //            Text("Get Started")
@@ -82,7 +81,7 @@ struct ButtonView: View {
                 .foregroundColor(.white)
                 .bold()
                 .font(.title3)
-            NavigationLink(destination: LoginView()) {
+            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                 Text("Login")
                     .padding()
                     .frame(maxWidth: .infinity)
