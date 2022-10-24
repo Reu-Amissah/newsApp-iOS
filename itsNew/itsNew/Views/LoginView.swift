@@ -10,7 +10,9 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         VStack {
+            Spacer()
             LoginHeaderView()
+                .multilineTextAlignment(.leading)
             Spacer()
             LoginButtonView()
         }
@@ -19,7 +21,9 @@ struct LoginView: View {
 
 struct LoginHeaderView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LoginBoldText(text: "Welcome Back 👋")
+            .multilineTextAlignment(.trailing)
+        LoginSecondaryText(text: "This would take less than a minute, enter your username, email and password")
     }
 }
 

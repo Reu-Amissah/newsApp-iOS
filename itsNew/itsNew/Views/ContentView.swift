@@ -81,7 +81,7 @@ struct ButtonView: View {
                 .foregroundColor(.white)
                 .bold()
                 .font(.title3)
-            NavigationLink(destination: LoginView()) {
+            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                 Text("Login")
                     .padding()
                     .frame(maxWidth: .infinity)

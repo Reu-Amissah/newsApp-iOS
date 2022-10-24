@@ -27,11 +27,45 @@ struct LandingSmallTextView: View {
     }
 }
 
+struct LoginBoldText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(Color("boldTextColor"))
+            .font(.title2)
+            .fontWeight(.black)
+    }
+}
+
+struct LoginRegularText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.callout)
+            .foregroundColor(Color("regularTextColor"))
+    }
+}
+
+struct LoginSecondaryText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.callout)
+            .foregroundColor(Color("secondaryTextColor"))
+    }
+}
+
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             LandingBigTextView(text: "Hello world")
             LandingSmallTextView(text: "Let's go!")
+            LoginBoldText(text: "Welcome Back")
+            LoginRegularText(text: "Enter your name here")
+            LoginSecondaryText(text: "Login successfull")
         }
     }
 }
