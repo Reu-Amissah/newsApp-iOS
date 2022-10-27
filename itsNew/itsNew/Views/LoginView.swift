@@ -18,6 +18,7 @@ struct LoginView: View {
             LoginButtonView()
                 .padding(.horizontal, 20)
             Spacer()
+            AssistedLoginView()
         }
     }
 }
@@ -80,6 +81,48 @@ struct LoginButtonView: View {
             Text("Not a member? Sign Up")
                 .font(.callout)
         }
+    }
+}
+
+struct AssistedLoginView: View {
+    var body: some View {
+        HStack {
+            FacebookButtonView()
+            GoogleButtonView()
+            
+        }
+        .padding(.horizontal, 20)
+    }
+}
+
+struct FacebookButtonView: View {
+    var body: some View {
+        Text("Facebook")
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color("backgroundColor"))
+            .cornerRadius(10)
+            .foregroundColor(.white)
+            .bold()
+            .font(.title3)
+    }
+}
+
+struct GoogleButtonView: View {
+    var body: some View {
+        Text("Google")
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(.white)
+            .cornerRadius(10)
+            .foregroundColor(Color("buttonColor"))
+            .bold()
+            .font(.title3)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color("inputFieldBackgroundColor"), lineWidth: 5)
+            )
+        
     }
 }
 
