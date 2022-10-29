@@ -19,6 +19,7 @@
 		D36C474729048D5C00C58625 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C474629048D5C00C58625 /* TextView.swift */; };
 		D390311D290A065E0031472F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D390311C290A065E0031472F /* FirebaseAuth */; };
 		D390311F290A065E0031472F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D390311E290A065E0031472F /* FirebaseFirestore */; };
+		D3A45DF4290DCA910094BB72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */; };
 		D3F6254B29072A4C00D93AD5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F6254A29072A4C00D93AD5 /* RoundView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		D3385F09290212F10074E9D2 /* itsNewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itsNewUITests.swift; sourceTree = "<group>"; };
 		D3385F0B290212F10074E9D2 /* itsNewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itsNewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D36C474629048D5C00C58625 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3F6254A29072A4C00D93AD5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		D3385EED290212EF0074E9D2 /* itsNew */ = {
 			isa = PBXGroup;
 			children = (
+				D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */,
 				D3385F1A2902143D0074E9D2 /* Views */,
 				D3385F19290214330074E9D2 /* Model */,
 				D3385F182902142D0074E9D2 /* App */,
@@ -280,6 +283,7 @@
 			files = (
 				D3385EF6290212F10074E9D2 /* Preview Assets.xcassets in Resources */,
 				D3385EF3290212F10074E9D2 /* Assets.xcassets in Resources */,
+				D3A45DF4290DCA910094BB72 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
