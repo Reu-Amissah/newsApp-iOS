@@ -9,16 +9,20 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            LoginHeaderView()
-                .padding(.horizontal, 20)
-            InputSection()
-            Spacer()
-            LoginButtonView()
-                .padding(.horizontal, 20)
-            Spacer()
-            AssistedLoginView()
+        ZStack {
+            Color("regularBackground")
+                .ignoresSafeArea(.all)
+            VStack {
+                Spacer()
+                LoginHeaderView()
+                    .padding(.horizontal, 20)
+                InputSection()
+                Spacer()
+                LoginButtonView()
+                    .padding(.horizontal, 20)
+                Spacer()
+                AssistedLoginView()
+            }
         }
     }
 }
@@ -27,10 +31,10 @@ struct LoginView: View {
 //Input Fields Model------
 struct InputSection: View {
     var body: some View {
-        InputFieldView(username: "", text: "Email")
+        InputFieldView(username: "Email")
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        InputFieldView(username: "", text: "Password")
+        InputFieldView(username: "Password")
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -51,10 +55,9 @@ struct LoginHeaderView: View {
 
 struct InputFieldView: View {
     @State var username: String
-    var text: String
     
     var body: some View {
-        TextField(text, text: $username)
+        TextField("Email", text: $username)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
@@ -80,6 +83,7 @@ struct LoginButtonView: View {
                 .font(.title3)
             Text("Not a member? Sign Up")
                 .font(.callout)
+                .foregroundColor(Color("regularTextColor"))
         }
     }
 }
