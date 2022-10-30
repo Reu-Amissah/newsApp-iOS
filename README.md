@@ -3,6 +3,7 @@
 ## Features
 - [x] Landing Page
 - [x] Login Page
+- [ ] User Authentication with Firebase
 - [ ] Register/ Sign In page
 - [ ] Home Page/ Trending
 
