@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseCore
+import FirebaseCoreInternal
 
 @main
 struct itsNewApp: App {
-    // register app delegate for Firebase setup
+    //configures a default Firebase app for you
     init() {
         FirebaseApp.configure()
     }
