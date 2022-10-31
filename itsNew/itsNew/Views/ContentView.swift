@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     var body: some View {
@@ -74,14 +75,16 @@ struct WelcomeView: View {
 struct ButtonView: View {
     var body: some View {
         HStack {
-            Text("Register")
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color("buttonColor"))
-                .cornerRadius(10)
-                .foregroundColor(.white)
-                .bold()
-                .font(.title3)
+            NavigationLink(destination: SignUpView()) {
+                Text("Register")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color("buttonColor"))
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .bold()
+                    .font(.title3)
+            }
             NavigationLink(destination: LoginView()) {
                 Text("Login")
                     .padding()
