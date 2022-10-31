@@ -32,10 +32,10 @@ struct LoginView: View {
 //Input Fields Model------
 struct InputSection: View {
     var body: some View {
-        InputFieldView(username: "Email")
+        InputFieldView(username: "")
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        InputFieldView(username: "Password")
+        SecureFieldView(username: "")
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -59,6 +59,22 @@ struct InputFieldView: View {
     
     var body: some View {
         TextField("Email", text: $username)
+            .padding()
+            .foregroundColor(Color("secondaryTextColor"))
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        Color("inputFieldBackgroundColor")
+                         )
+            )
+    }
+}
+
+struct SecureFieldView: View {
+    @State var username: String
+    
+    var body: some View {
+        SecureField("Password", text: $username)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
