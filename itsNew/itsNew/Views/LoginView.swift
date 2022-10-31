@@ -7,22 +7,51 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
+
+class AppViewModel: ObservableObject {
+    @State var signInProcessing = false
+    @State var signInErrorMessage = ""
+    
+    func signInUser(email: String, password: String){
+        signInProcessing = true
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            
+            guard error == nil else {
+                self.signInProcessing = false
+                self.signInErrorMessage = error!.localizedDescription
+                return
+            }
+            switch authResult {
+            case .none:
+                print("Could not sign in user.")
+                self.signInProcessing = false
+            case .some(_):
+                print("User signed in")
+                self.signInProcessing = false
+            }
+        }
+    }
+}
 
 struct LoginView: View {
     var body: some View {
-        ZStack {
-            Color("regularBackground")
-                .ignoresSafeArea(.all)
-            VStack {
-                Spacer()
-                LoginHeaderView()
-                    .padding(.horizontal, 20)
-                InputSection()
-                Spacer()
-                LoginButtonView()
-                    .padding(.horizontal, 20)
-                Spacer()
-                AssistedLoginView()
+        NavigationView {
+            ZStack {
+                Color("regularBackground")
+                    .ignoresSafeArea(.all)
+                VStack {
+                    Spacer()
+                    LoginHeaderView()
+                        .padding(.horizontal, 20)
+                    InputSection()
+                    Spacer()
+                    LoginButtonView()
+                        .padding(.horizontal, 20)
+                    Spacer()
+                    AssistedLoginView()
+                }
             }
         }
     }
@@ -32,10 +61,10 @@ struct LoginView: View {
 //Input Fields Model------
 struct InputSection: View {
     var body: some View {
-        InputFieldView(username: "")
+        InputFieldView(email: "")
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        SecureFieldView(username: "")
+        SecureFieldView(password: "")
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -55,10 +84,10 @@ struct LoginHeaderView: View {
 }
 
 struct InputFieldView: View {
-    @State var username: String
+    @State var email: String
     
     var body: some View {
-        TextField("Email", text: $username)
+        TextField("Email", text: $email)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
@@ -71,10 +100,10 @@ struct InputFieldView: View {
 }
 
 struct SecureFieldView: View {
-    @State var username: String
+    @State var password: String
     
     var body: some View {
-        SecureField("Password", text: $username)
+        SecureField("Password", text: $password)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
@@ -87,9 +116,15 @@ struct SecureFieldView: View {
 }
 
 struct LoginButtonView: View {
+    @Binding var email: String
+    @Binding var password: String
+    
     var body: some View {
         
         VStack (spacing: 20) {
+            Button(action: {
+                AppViewModel.signInUser(email: email, password: password)
+            },
             Text("Login")
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -98,6 +133,9 @@ struct LoginButtonView: View {
                 .foregroundColor(.white)
                 .bold()
                 .font(.title3)
+            }
+                   
+                   
             Text("Not a member? Sign Up")
                 .font(.callout)
                 .foregroundColor(Color("regularTextColor"))
