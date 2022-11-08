@@ -7,35 +7,38 @@
 
 import SwiftUI
 import Firebase
-import FirebaseAuth
+//import FirebaseAuth
 
-class AppViewModel: ObservableObject {
-    @State var signInProcessing = false
-    @State var signInErrorMessage = ""
-    
-    func signInUser(email: String, password: String){
-        signInProcessing = true
-        
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            
-            guard error == nil else {
-                self.signInProcessing = false
-                self.signInErrorMessage = error!.localizedDescription
-                return
-            }
-            switch authResult {
-            case .none:
-                print("Could not sign in user.")
-                self.signInProcessing = false
-            case .some(_):
-                print("User signed in")
-                self.signInProcessing = false
-            }
-        }
-    }
-}
+//class AppViewModel: ObservableObject {
+//    @State var signInProcessing = false
+//    @State var signInErrorMessage = ""
+//
+//    func signInUser(email: String, password: String){
+//        signInProcessing = true
+//
+//        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//
+//            guard error == nil else {
+//                self.signInProcessing = false
+//                self.signInErrorMessage = error!.localizedDescription
+//                return
+//            }
+//            switch authResult {
+//            case .none:
+//                print("Could not sign in user.")
+//                self.signInProcessing = false
+//            case .some(_):
+//                print("User signed in")
+//                self.signInProcessing = false
+//            }
+//        }
+//    }
+//}
 
 struct LoginView: View {
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -47,7 +50,7 @@ struct LoginView: View {
                         .padding(.horizontal, 20)
                     InputSection()
                     Spacer()
-                    LoginButtonView()
+                    LoginButtonView(email: $email, password: $password)
                         .padding(.horizontal, 20)
                     Spacer()
                     AssistedLoginView()
@@ -55,6 +58,7 @@ struct LoginView: View {
             }
         }
     }
+    
 }
 
 
@@ -88,6 +92,7 @@ struct InputFieldView: View {
     
     var body: some View {
         TextField("Email", text: $email)
+            .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
@@ -122,23 +127,35 @@ struct LoginButtonView: View {
     var body: some View {
         
         VStack (spacing: 20) {
-            Button(action: {
-                AppViewModel.signInUser(email: email, password: password)
-            },
-            Text("Login")
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color("buttonColor"))
-                .cornerRadius(10)
-                .foregroundColor(.white)
-                .bold()
-                .font(.title3)
+            Button {
+                login()
+            } label: {
+                
+                Text("Login")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color("buttonColor"))
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .bold()
+                    .font(.title3)
             }
-                   
                    
             Text("Not a member? Sign Up")
                 .font(.callout)
                 .foregroundColor(Color("regularTextColor"))
+        }
+    }
+    
+    //firebase login Authentication model
+    func login() {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            } else {
+                print("success")
+            }
         }
     }
 }
