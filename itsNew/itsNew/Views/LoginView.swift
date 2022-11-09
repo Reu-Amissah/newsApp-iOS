@@ -21,7 +21,7 @@ struct LoginView: View {
                     Spacer()
                     LoginHeaderView()
                         .padding(.horizontal, 20)
-                    InputSection()
+                    InputSection(email: $email, password: $password)
                     Spacer()
                     LoginButtonView(email: $email, password: $password)
                         .padding(.horizontal, 20)
@@ -37,11 +37,14 @@ struct LoginView: View {
 
 //Input Fields Model------
 struct InputSection: View {
+    @Binding var email: String
+    @Binding var password: String
+    
     var body: some View {
-        InputFieldView(email: "")
+        InputFieldView(email: $email)
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        SecureFieldView(password: "")
+        SecureFieldView(password: $password)
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -61,7 +64,7 @@ struct LoginHeaderView: View {
 }
 
 struct InputFieldView: View {
-    @State var email: String = ""
+    @Binding var email: String
     
     var body: some View {
         TextField("Email", text: $email)
@@ -78,7 +81,7 @@ struct InputFieldView: View {
 }
 
 struct SecureFieldView: View {
-    @State var password: String = ""
+    @Binding var password: String
     
     var body: some View {
         SecureField("Password", text: $password)
@@ -101,6 +104,8 @@ struct LoginButtonView: View {
         
         VStack (spacing: 20) {
             Button {
+                print ("Your email is \(email)")
+                print ("Your password is \(password)")
                 login()
             } label: {
                 
