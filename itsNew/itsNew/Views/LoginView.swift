@@ -7,33 +7,6 @@
 
 import SwiftUI
 import Firebase
-//import FirebaseAuth
-
-//class AppViewModel: ObservableObject {
-//    @State var signInProcessing = false
-//    @State var signInErrorMessage = ""
-//
-//    func signInUser(email: String, password: String){
-//        signInProcessing = true
-//
-//        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-//
-//            guard error == nil else {
-//                self.signInProcessing = false
-//                self.signInErrorMessage = error!.localizedDescription
-//                return
-//            }
-//            switch authResult {
-//            case .none:
-//                print("Could not sign in user.")
-//                self.signInProcessing = false
-//            case .some(_):
-//                print("User signed in")
-//                self.signInProcessing = false
-//            }
-//        }
-//    }
-//}
 
 struct LoginView: View {
     @State var email = ""
@@ -88,7 +61,7 @@ struct LoginHeaderView: View {
 }
 
 struct InputFieldView: View {
-    @State var email: String
+    @State var email: String = ""
     
     var body: some View {
         TextField("Email", text: $email)
@@ -105,7 +78,7 @@ struct InputFieldView: View {
 }
 
 struct SecureFieldView: View {
-    @State var password: String
+    @State var password: String = ""
     
     var body: some View {
         SecureField("Password", text: $password)
