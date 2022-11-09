@@ -22,10 +22,14 @@ struct LoginView: View {
                     LoginHeaderView()
                         .padding(.horizontal, 20)
                     InputSection(email: $email, password: $password)
+                    LoginSecondaryOptionsView()
+                        .padding(.top, 20)
                     Spacer()
                     LoginButtonView(email: $email, password: $password)
                         .padding(.horizontal, 20)
                     Spacer()
+                    LabelledDivider(label: "Or Login With")
+                        .padding(.bottom, 20)
                     AssistedLoginView()
                 }
             }
@@ -33,6 +37,47 @@ struct LoginView: View {
     }
     
 }
+
+
+//DIVIDER WITH LABELLED TEXTVIEW
+struct LabelledDivider: View {
+
+    let label: String
+    let horizontalPadding: CGFloat
+    let color: Color
+
+    init(label: String, horizontalPadding: CGFloat = 20, color: Color = .gray) {
+        self.label = label
+        self.horizontalPadding = horizontalPadding
+        self.color = color
+    }
+
+    var body: some View {
+        HStack {
+            line
+            LoginSecondaryText(text:label)
+            line
+        }
+    }
+
+    var line: some View {
+        VStack { Divider().background(color) }.padding(horizontalPadding)
+    }
+}
+
+struct LoginSecondaryOptionsView: View {
+    @State private var vibrateOnRing = true
+    
+    var body: some View {
+        HStack{
+            RememberTextView(text: "Remember me")
+            Spacer()
+            ForgotTextView(text: "Forgot password?")
+        }
+        .padding(.horizontal, 20)
+    }
+}
+
 
 
 //Input Fields Model------

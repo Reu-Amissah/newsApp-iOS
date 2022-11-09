@@ -58,6 +58,28 @@ struct LoginSecondaryText: View {
     }
 }
 
+struct RememberTextView: View {
+    
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.callout)
+            .foregroundColor(Color("boldTextColor"))
+    }
+}
+
+struct ForgotTextView: View {
+    
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.callout)
+            .foregroundColor(Color("buttonColor"))
+    }
+}
+
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -66,6 +88,7 @@ struct TextView_Previews: PreviewProvider {
             LoginBoldText(text: "Welcome Back")
             LoginRegularText(text: "Enter your name here")
             LoginSecondaryText(text: "Login successfull")
+            ForgotTextView(text: "Forgot password?")
         }
     }
 }
