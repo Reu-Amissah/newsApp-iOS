@@ -7,15 +7,25 @@
 
 import SwiftUI
 import Firebase
-//import FirebaseCore
-//import FirebaseCoreInternal
+
+
+final class AppDelegate: NSObject, UIApplicationDelegate {
+    func application (_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool{
+        
+        FirebaseApp.configure()
+        return true
+    }
+}
 
 @main
 struct itsNewApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     //configures a default Firebase app for you
-    init() {
-        FirebaseApp.configure()
-    }
+//    init() {
+//        FirebaseApp.configure()
+//    }
     
     var body: some Scene {
         WindowGroup {
