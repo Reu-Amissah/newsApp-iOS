@@ -149,8 +149,6 @@ struct LoginButtonView: View {
         
         VStack (spacing: 20) {
             Button {
-                print ("Your email is \(email)")
-                print ("Your password is \(password)")
                 login()
             } label: {
                 
