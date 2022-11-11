@@ -80,6 +80,32 @@ struct ForgotTextView: View {
     }
 }
 
+//DIVIDER WITH LABELLED TEXTVIEW
+struct LabelledDivider: View {
+
+    let label: String
+    let horizontalPadding: CGFloat
+    let color: Color
+
+    init(label: String, horizontalPadding: CGFloat = 20, color: Color = .gray) {
+        self.label = label
+        self.horizontalPadding = horizontalPadding
+        self.color = color
+    }
+
+    var body: some View {
+        HStack {
+            line
+            LoginSecondaryText(text:label)
+            line
+        }
+    }
+
+    var line: some View {
+        VStack { Divider().background(color) }.padding(horizontalPadding)
+    }
+}
+
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -89,6 +115,7 @@ struct TextView_Previews: PreviewProvider {
             LoginRegularText(text: "Enter your name here")
             LoginSecondaryText(text: "Login successfull")
             ForgotTextView(text: "Forgot password?")
+            LabelledDivider(label: "or sign in with")
         }
     }
 }
