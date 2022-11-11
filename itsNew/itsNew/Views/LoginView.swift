@@ -9,8 +9,8 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
+    @State static var email = ""
+    @State static var password = ""
     
     var body: some View {
         NavigationView {
@@ -21,11 +21,11 @@ struct LoginView: View {
                     Spacer()
                     LoginHeaderView()
                         .padding(.horizontal, 20)
-                    InputSection(email: $email, password: $password)
+                    InputSection(email: LoginView.$email, password: LoginView.$password)
                     LoginSecondaryOptionsView()
                         .padding(.top, 20)
                     Spacer()
-                    LoginButtonView(email: $email, password: $password)
+                    LoginButtonView(email: LoginView.$email, password: LoginView.$password)
                         .padding(.horizontal, 20)
                     Spacer()
                     LabelledDivider(label: "Or Login With")
@@ -62,17 +62,17 @@ struct InputSection: View {
     @Binding var password: String
     
     var body: some View {
-        InputFieldView(email: $email)
+        LoginInputFieldView(email: $email)
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        SecureFieldView(password: $password)
+        LoginSecureFieldView(password: $password)
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
     }
 }
 
-struct InputFieldView: View {
+struct LoginInputFieldView: View {
     @Binding var email: String
     
     var body: some View {
@@ -89,7 +89,7 @@ struct InputFieldView: View {
     }
 }
 
-struct SecureFieldView: View {
+struct LoginSecureFieldView: View {
     @Binding var password: String
     
     var body: some View {
