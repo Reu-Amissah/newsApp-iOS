@@ -39,31 +39,7 @@ struct LoginView: View {
 }
 
 
-//DIVIDER WITH LABELLED TEXTVIEW
-struct LabelledDivider: View {
 
-    let label: String
-    let horizontalPadding: CGFloat
-    let color: Color
-
-    init(label: String, horizontalPadding: CGFloat = 20, color: Color = .gray) {
-        self.label = label
-        self.horizontalPadding = horizontalPadding
-        self.color = color
-    }
-
-    var body: some View {
-        HStack {
-            line
-            LoginSecondaryText(text:label)
-            line
-        }
-    }
-
-    var line: some View {
-        VStack { Divider().background(color) }.padding(horizontalPadding)
-    }
-}
 
 struct LoginSecondaryOptionsView: View {
     @State private var vibrateOnRing = true
@@ -108,38 +84,7 @@ struct LoginHeaderView: View {
     }
 }
 
-struct InputFieldView: View {
-    @Binding var email: String
-    
-    var body: some View {
-        TextField("Email", text: $email)
-            .textCase(.lowercase)
-            .padding()
-            .foregroundColor(Color("secondaryTextColor"))
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(
-                        Color("inputFieldBackgroundColor")
-                         )
-            )
-    }
-}
 
-struct SecureFieldView: View {
-    @Binding var password: String
-    
-    var body: some View {
-        SecureField("Password", text: $password)
-            .padding()
-            .foregroundColor(Color("secondaryTextColor"))
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(
-                        Color("inputFieldBackgroundColor")
-                         )
-            )
-    }
-}
 
 struct LoginButtonView: View {
     @Binding var email: String
@@ -151,20 +96,10 @@ struct LoginButtonView: View {
             Button {
                 login()
             } label: {
-                
-                Text("Login")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color("buttonColor"))
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
-                    .bold()
-                    .font(.title3)
+                LoginButtonTextView(text: "Login")
             }
                    
-            Text("Not a member? Sign Up")
-                .font(.callout)
-                .foregroundColor(Color("regularTextColor"))
+            NotLoginTextView(text: "Not a member? Sign In")
         }
     }
     
