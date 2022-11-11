@@ -62,10 +62,10 @@ struct InputSection: View {
     @Binding var password: String
     
     var body: some View {
-        LoginInputFieldView(email: $email)
+        LoginInputFieldView(email: LoginView.$email)
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        LoginSecureFieldView(password: $password)
+        LoginSecureFieldView(password: LoginView.$password)
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -76,7 +76,7 @@ struct LoginInputFieldView: View {
     @Binding var email: String
     
     var body: some View {
-        TextField("Email", text: $email)
+        TextField("Email", text: LoginView.$email)
             .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
@@ -93,7 +93,7 @@ struct LoginSecureFieldView: View {
     @Binding var password: String
     
     var body: some View {
-        SecureField("Password", text: $password)
+        SecureField("Password", text: LoginView.$password)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
