@@ -72,6 +72,39 @@ struct InputSection: View {
     }
 }
 
+struct InputFieldView: View {
+    @Binding var email: String
+    
+    var body: some View {
+        TextField("Email", text: $email)
+            .textCase(.lowercase)
+            .padding()
+            .foregroundColor(Color("secondaryTextColor"))
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        Color("inputFieldBackgroundColor")
+                         )
+            )
+    }
+}
+
+struct SecureFieldView: View {
+    @Binding var password: String
+    
+    var body: some View {
+        SecureField("Password", text: $password)
+            .padding()
+            .foregroundColor(Color("secondaryTextColor"))
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        Color("inputFieldBackgroundColor")
+                         )
+            )
+    }
+}
+
 //Login Header Text -- Welcome Text
 struct LoginHeaderView: View {
     var body: some View {
