@@ -49,13 +49,13 @@ struct SignUpInputSection: View {
     @Binding var username: String
     
     var body: some View {
-        SignUpInputFieldView(email: $username)
+        SignUpInputFieldView(email: SignUpView.$username)
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        SignUpInputFieldView(email: $email)
+        SignUpInputFieldView(email: SignUpView.$email)
             .padding(.horizontal, 20)
             .padding(.top, 30)
-        SignUpSecureFieldView(password: $password)
+        SignUpSecureFieldView(password: SignUpView.$password)
             .padding(.horizontal, 20)
             .padding(.top, 10)
         
@@ -66,7 +66,7 @@ struct SignUpInputFieldView: View {
     @Binding var email: String
     
     var body: some View {
-        TextField("Email", text: $email)
+        TextField("Email", text: SignUpView.$email)
             .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
@@ -83,7 +83,7 @@ struct SignUpSecureFieldView: View {
     @Binding var password: String
     
     var body: some View {
-        SecureField("Password", text: $password)
+        SecureField("Password", text: SignUpView.$password)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
