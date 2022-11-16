@@ -89,6 +89,7 @@ struct LoginInputFieldView: View {
             .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
+            .colorScheme(.light)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(
@@ -105,6 +106,7 @@ struct LoginSecureFieldView: View {
         SecureField("Password", text: $text)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
+            .colorScheme(.light)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(
