@@ -9,8 +9,8 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
-    @State static var email = ""
-    @State static var password = ""
+    @State var email = ""
+    @State var password = ""
     
     var body: some View {
         NavigationView {
@@ -21,11 +21,21 @@ struct LoginView: View {
                     Spacer()
                     LoginHeaderView()
                         .padding(.horizontal, 20)
-                    InputSection(email: LoginView.$email, password: LoginView.$password)
+//                    InputSection(email: $email, password: $password)
+                    
+                    //Input Field Views
+                    LoginInputFieldView(text: $email)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 30)
+                    LoginSecureFieldView(text: $password)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 10)
+                    
+                    
                     LoginSecondaryOptionsView()
                         .padding(.top, 20)
                     Spacer()
-                    LoginButtonView(email: LoginView.$email, password: LoginView.$password)
+                    LoginButtonView(email: $email, password: $password)
                         .padding(.horizontal, 20)
                     Spacer()
                     LabelledDivider(label: "Or Login With")
@@ -55,28 +65,27 @@ struct LoginSecondaryOptionsView: View {
 }
 
 
-
 //Input Fields Model------
-struct InputSection: View {
-    @Binding var email: String
-    @Binding var password: String
-    
-    var body: some View {
-        LoginInputFieldView(email: LoginView.$email)
-            .padding(.horizontal, 20)
-            .padding(.top, 30)
-        LoginSecureFieldView(password: LoginView.$password)
-            .padding(.horizontal, 20)
-            .padding(.top, 10)
-        
-    }
-}
+//struct InputSection: View {
+//    @Binding var email: String
+//    @Binding var password: String
+//
+//    var body: some View {
+//        LoginInputFieldView(text: $email)
+//            .padding(.horizontal, 20)
+//            .padding(.top, 30)
+//        LoginSecureFieldView(text: $password)
+//            .padding(.horizontal, 20)
+//            .padding(.top, 10)
+//
+//    }
+//}
 
 struct LoginInputFieldView: View {
-    @Binding var email: String
+    @Binding var text: String
     
     var body: some View {
-        TextField("Email", text: LoginView.$email)
+        TextField("Email", text: $text)
             .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
@@ -90,10 +99,10 @@ struct LoginInputFieldView: View {
 }
 
 struct LoginSecureFieldView: View {
-    @Binding var password: String
+    @Binding var text: String
     
     var body: some View {
-        SecureField("Password", text: LoginView.$password)
+        SecureField("Password", text: $text)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(
@@ -138,7 +147,7 @@ struct LoginButtonView: View {
     
     //firebase login Authentication model
     func login() {
-        
+            
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
