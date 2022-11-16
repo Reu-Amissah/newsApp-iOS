@@ -3,8 +3,8 @@
 ## Features
 - [x] Landing Page
 - [x] Login Page
-- [X] User Authentication with Firebase (Login/SignIn)
-- [ ] Register/ Sign In page
+- [x] Register/ Sign In page
+- [x] User Authentication with Firebase (Login/SignIn)
 - [ ] Home Page/ Trending
 
 ## Figma
