@@ -11,6 +11,7 @@ import Firebase
 struct LoginView: View {
     @State var email = ""
     @State var password = ""
+    @State var signInProcessing = false
     
     var body: some View {
         NavigationView {
@@ -35,7 +36,7 @@ struct LoginView: View {
                     LoginSecondaryOptionsView()
                         .padding(.top, 20)
                     Spacer()
-                    LoginButtonView(email: $email, password: $password)
+                    LoginButtonView(email: $email, password: $password, signInProcessing: $signInProcessing)
                         .padding(.horizontal, 20)
                     Spacer()
                     LabelledDivider(label: "Or Login With")
@@ -133,6 +134,7 @@ struct LoginHeaderView: View {
 struct LoginButtonView: View {
     @Binding var email: String
     @Binding var password: String
+    @Binding var signInProcessing: Bool
     
     var body: some View {
         
@@ -142,19 +144,25 @@ struct LoginButtonView: View {
             } label: {
                 LoginButtonTextView(text: "Login")
             }
-                   
+            if signInProcessing {
+                ProgressView()
+            }
             NotLoginTextView(text: "Not a member? Sign In")
         }
     }
     
     //firebase login Authentication model
     func login() {
-            
+        
+        signInProcessing = true
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
+                signInProcessing = false
                 print(error?.localizedDescription ?? "")
             } else {
+                signInProcessing = false
                 print("success")
+                    NewsFeed()
             }
         }
     }
