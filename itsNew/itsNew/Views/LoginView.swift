@@ -12,37 +12,48 @@ struct LoginView: View {
     @State var email = ""
     @State var password = ""
     @State var signInProcessing = false
+    @State var userIsLoggedIn = false
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color("regularBackground")
-                    .ignoresSafeArea(.all)
-                VStack {
-                    Spacer()
-                    LoginHeaderView()
-                        .padding(.horizontal, 20)
+        
+        //condition to navigate HOME after successfull LOGIN✅
+        if userIsLoggedIn {
+            withAnimation {
+                NewsFeed()
+            }
+        }else{
+            content
+        }
+    }
+    
+    var content: some View {
+
+        ZStack {
+            Color("regularBackground")
+                .ignoresSafeArea(.all)
+            VStack {
+                Spacer()
+                LoginHeaderView()
+                    .padding(.horizontal, 20)
 //                    InputSection(email: $email, password: $password)
-                    
-                    //Input Field Views
-                    LoginInputFieldView(text: $email)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 30)
-                    LoginSecureFieldView(text: $password)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 10)
-                    
-                    
-                    LoginSecondaryOptionsView()
-                        .padding(.top, 20)
-                    Spacer()
-                    LoginButtonView(email: $email, password: $password, signInProcessing: $signInProcessing)
-                        .padding(.horizontal, 20)
-                    Spacer()
-                    LabelledDivider(label: "Or Login With")
-                        .padding(.bottom, 20)
-                    AssistedLoginView()
-                }
+                
+                //Input Field Views
+                LoginInputFieldView(text: $email)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 30)
+                LoginSecureFieldView(text: $password)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
+     
+                LoginSecondaryOptionsView()
+                    .padding(.top, 20)
+                Spacer()
+                LoginButtonView(email: $email, password: $password, signInProcessing: $signInProcessing, userIsLoggedIn: $userIsLoggedIn)
+                    .padding(.horizontal, 20)
+                Spacer()
+                LabelledDivider(label: "Or Login With")
+                    .padding(.bottom, 20)
+                AssistedLoginView()
             }
         }
     }
@@ -135,6 +146,7 @@ struct LoginButtonView: View {
     @Binding var email: String
     @Binding var password: String
     @Binding var signInProcessing: Bool
+    @Binding var userIsLoggedIn: Bool
     
     var body: some View {
         
@@ -144,9 +156,10 @@ struct LoginButtonView: View {
             } label: {
                 LoginButtonTextView(text: "Login")
             }
-            if signInProcessing {
-                ProgressView()
-            }
+            //ADD PROGRESS or LOADING VIEW
+//            if signInProcessing {
+//                ProgressView()
+//            }
             NotLoginTextView(text: "Not a member? Sign In")
         }
     }
@@ -161,8 +174,9 @@ struct LoginButtonView: View {
                 print(error?.localizedDescription ?? "")
             } else {
                 signInProcessing = false
+                userIsLoggedIn = true
                 print("success")
-                    NewsFeed()
+//                    NewsFeed()
             }
         }
     }
