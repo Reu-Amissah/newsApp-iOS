@@ -4,9 +4,10 @@
 - [x] Landing Page
 - [x] Login Page
 - [x] Register/ Sign In page
-- [x] User Authentication with Firebase (Login/SignIn)
+- [x] User Authentication with Firebase, LogIn
+- [ ] User Authentication with Firebase, Register
 - [x] Navigate to Homepage after Login
-- [x] Navigate to Homepage after SignIn
+- [ ] Navigate to Homepage after Register
 - [ ] Home Page/ Trending
 
 ## Figma
