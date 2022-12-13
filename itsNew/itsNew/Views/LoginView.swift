@@ -20,6 +20,7 @@ struct LoginView: View {
         if userIsLoggedIn {
             withAnimation {
                 NewsFeed()
+                    .navigationBarBackButtonHidden(true)
             }
         }else{
             content
