@@ -49,9 +49,6 @@ struct SignUpInputSection: View {
     @Binding var signUpUsername: String
     
     var body: some View {
-        SignUpInputFieldView(signUpEmail: SignUpView.$signUpUsername)
-            .padding(.horizontal, 20)
-            .padding(.top, 30)
         SignUpInputFieldView(signUpEmail: SignUpView.$signUpEmail)
             .padding(.horizontal, 20)
             .padding(.top, 30)
