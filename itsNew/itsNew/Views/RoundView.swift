@@ -25,6 +25,22 @@ struct LoginButtonTextView: View {
     }
 }
 
+struct SignUpButtonTextView: View {
+    var text = ""
+    
+    var body: some View {
+        Text("Sign Up")
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color("buttonColor"))
+            .cornerRadius(10)
+            .foregroundColor(.white)
+            .bold()
+            .font(.title3)
+    }
+}
+
+
 struct NotLoginTextView: View {
     var text = ""
     

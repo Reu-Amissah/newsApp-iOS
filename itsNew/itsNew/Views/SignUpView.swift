@@ -22,6 +22,11 @@ struct SignUpView: View {
                 SignUpHeaderView()
                     .padding(.horizontal, 20)
                 SignUpInputSection(signUpEmail: SignUpView.$signUpEmail, signUpPassword: SignUpView.$signUpPassword, signUpUsername: SignUpView.$signUpUsername)
+                LoginSecondaryOptionsView()
+                    .padding(.top, 20)
+                Spacer()
+                SignUpButtonView()
+                    .padding(.horizontal, 20)
                 Spacer()
                 LabelledDivider(label: "Or SignUp with")
                     .padding(.bottom, 20)
@@ -58,6 +63,27 @@ struct SignUpInputSection: View {
         
     }
 }
+
+struct SignUpButtonView: View {
+    
+    var body: some View {
+        
+        VStack (spacing: 20) {
+            Button {
+//                login()
+            } label: {
+                SignUpButtonTextView(text: "Login")
+            }
+            //ADD PROGRESS or LOADING VIEW
+//            if signInProcessing {
+//                ProgressView()
+//            }
+            NotLoginTextView(text: "Not a member? Sign In")
+        }
+    }
+    
+}
+
 
 struct SignUpInputFieldView: View {
     @Binding var signUpEmail: String
