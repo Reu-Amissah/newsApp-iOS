@@ -9,9 +9,9 @@ import SwiftUI
 import Firebase
 
 struct SignUpView: View {
-    @State static var signUpEmail = ""
-    @State static var signUpPassword = ""
-    @State static var signUpUsername = ""
+    @State var signUpEmail = ""
+    @State var signUpPassword = ""
+    @State var signUpUsername = ""
     
     var body: some View {
         ZStack {
@@ -21,7 +21,13 @@ struct SignUpView: View {
                 Spacer()
                 SignUpHeaderView()
                     .padding(.horizontal, 20)
-                SignUpInputSection(signUpEmail: SignUpView.$signUpEmail, signUpPassword: SignUpView.$signUpPassword, signUpUsername: SignUpView.$signUpUsername)
+                SignUpInputFieldView(signUpEmail: $signUpEmail)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 30)
+                SignUpSecureFieldView(signUpPassword: $signUpPassword)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
+//                SignUpInputSection(signUpEmail: $signUpEmail, signUpPassword: $signUpPassword, signUpUsername: $signUpUsername)
                 LoginSecondaryOptionsView()
                     .padding(.top, 20)
                 Spacer()
@@ -48,21 +54,21 @@ struct SignUpHeaderView: View {
 }
 
 //Input Fields Model------
-struct SignUpInputSection: View {
-    @Binding var signUpEmail: String
-    @Binding var signUpPassword: String
-    @Binding var signUpUsername: String
-    
-    var body: some View {
-        SignUpInputFieldView(signUpEmail: SignUpView.$signUpEmail)
-            .padding(.horizontal, 20)
-            .padding(.top, 30)
-        SignUpSecureFieldView(signUpPassword: SignUpView.$signUpPassword)
-            .padding(.horizontal, 20)
-            .padding(.top, 10)
-        
-    }
-}
+//struct SignUpInputSection: View {
+//    @Binding var signUpEmail: String
+//    @Binding var signUpPassword: String
+//    @Binding var signUpUsername: String
+//
+//    var body: some View {
+//        SignUpInputFieldView(signUpEmail: $signUpEmail)
+//            .padding(.horizontal, 20)
+//            .padding(.top, 30)
+//        SignUpSecureFieldView(signUpPassword: $signUpPassword)
+//            .padding(.horizontal, 20)
+//            .padding(.top, 10)
+//
+//    }
+//}
 
 struct SignUpButtonView: View {
     
@@ -89,7 +95,7 @@ struct SignUpInputFieldView: View {
     @Binding var signUpEmail: String
     
     var body: some View {
-        TextField("Email", text: SignUpView.$signUpEmail)
+        TextField("Email", text: $signUpEmail)
             .textCase(.lowercase)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
@@ -106,7 +112,7 @@ struct SignUpSecureFieldView: View {
     @Binding var signUpPassword: String
     
     var body: some View {
-        SecureField("Password", text: SignUpView.$signUpPassword)
+        SecureField("Password", text: $signUpPassword)
             .padding()
             .foregroundColor(Color("secondaryTextColor"))
             .background(

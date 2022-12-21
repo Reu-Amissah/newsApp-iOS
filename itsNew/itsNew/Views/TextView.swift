@@ -116,6 +116,7 @@ struct TextView_Previews: PreviewProvider {
             LoginSecondaryText(text: "Login successfull")
             ForgotTextView(text: "Forgot password?")
             LabelledDivider(label: "or sign in with")
+            RememberTextView(text: "Remember Me")
         }
     }
 }
