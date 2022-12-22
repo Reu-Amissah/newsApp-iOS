@@ -15,6 +15,19 @@ struct SignUpView: View {
     @State var userIsSignedIn = false
     
     var body: some View {
+        
+        //condition to navigate HOME after successfull LOGIN✅
+        if userIsSignedIn {
+            withAnimation {
+                LoginView()
+            }
+        }else{
+            content
+        }
+    }
+    
+    var content: some View {
+
         ZStack {
             Color("regularBackground")
                 .ignoresSafeArea(.all)
@@ -41,7 +54,37 @@ struct SignUpView: View {
             }
         }
     }
+    
 }
+    
+//    var body: some View {
+//        ZStack {
+//            Color("regularBackground")
+//                .ignoresSafeArea(.all)
+//            VStack {
+//                Spacer()
+//                SignUpHeaderView()
+//                    .padding(.horizontal, 20)
+//                SignUpInputFieldView(signUpEmail: $signUpEmail)
+//                    .padding(.horizontal, 20)
+//                    .padding(.top, 30)
+//                SignUpSecureFieldView(signUpPassword: $signUpPassword)
+//                    .padding(.horizontal, 20)
+//                    .padding(.top, 10)
+////                SignUpInputSection(signUpEmail: $signUpEmail, signUpPassword: $signUpPassword, signUpUsername: $signUpUsername)
+//                LoginSecondaryOptionsView()
+//                    .padding(.top, 20)
+//                Spacer()
+//                SignUpButtonView(signUpEmail: $signUpEmail, signUpPassword: $signUpPassword, signUpProcessing: $signUpProcessing, userIsSignedIn: $userIsSignedIn)
+//                    .padding(.horizontal, 20)
+//                Spacer()
+//                LabelledDivider(label: "Or SignUp with")
+//                    .padding(.bottom, 20)
+//                AssistedLoginView()
+//            }
+//        }
+//    }
+//}
 
 struct SignUpHeaderView: View {
     var body: some View {
