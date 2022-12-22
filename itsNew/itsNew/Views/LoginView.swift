@@ -177,7 +177,6 @@ struct LoginButtonView: View {
                 signInProcessing = false
                 userIsLoggedIn = true
                 print("success")
-//                    NewsFeed()
             }
         }
     }
