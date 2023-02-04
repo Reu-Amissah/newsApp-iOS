@@ -5,7 +5,7 @@
 - [x] Login Page
 - [x] Register/ Sign In page
 - [x] User Authentication with Firebase, LogIn
-- [ ] User Authentication with Firebase, Register
+- [x] User Authentication with Firebase, Register
 - [x] Navigate to Homepage after Login
 - [ ] Navigate to Homepage after Register
 - [ ] Home Page/ Trending
