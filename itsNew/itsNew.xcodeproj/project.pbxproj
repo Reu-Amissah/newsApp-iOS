@@ -17,6 +17,7 @@
 		D3385F00290212F10074E9D2 /* itsNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3385EFF290212F10074E9D2 /* itsNewTests.swift */; };
 		D3385F0A290212F10074E9D2 /* itsNewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3385F09290212F10074E9D2 /* itsNewUITests.swift */; };
 		D3385F0C290212F10074E9D2 /* itsNewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3385F0B290212F10074E9D2 /* itsNewUITestsLaunchTests.swift */; };
+		D3557F4A298E909900D5F1BF /* NavigationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3557F49298E909900D5F1BF /* NavigationPanel.swift */; };
 		D36C474729048D5C00C58625 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C474629048D5C00C58625 /* TextView.swift */; };
 		D390311D290A065E0031472F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D390311C290A065E0031472F /* FirebaseAuth */; };
 		D390311F290A065E0031472F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D390311E290A065E0031472F /* FirebaseFirestore */; };
@@ -56,6 +57,7 @@
 		D3385F05290212F10074E9D2 /* itsNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itsNewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3385F09290212F10074E9D2 /* itsNewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itsNewUITests.swift; sourceTree = "<group>"; };
 		D3385F0B290212F10074E9D2 /* itsNewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itsNewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3557F49298E909900D5F1BF /* NavigationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPanel.swift; sourceTree = "<group>"; };
 		D36C474629048D5C00C58625 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3F6254A29072A4C00D93AD5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				D3F6254A29072A4C00D93AD5 /* RoundView.swift */,
 				D3FEBA57290F46AA00CAA369 /* SignUpView.swift */,
 				D31FF7952942C2FE00F1CD30 /* NewsFeed.swift */,
+				D3557F49298E909900D5F1BF /* NavigationPanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				D3F6254B29072A4C00D93AD5 /* RoundView.swift in Sources */,
 				D3385EF1290212EF0074E9D2 /* ContentView.swift in Sources */,
 				D3097F3D2904614D003DCB4D /* LoginView.swift in Sources */,
+				D3557F4A298E909900D5F1BF /* NavigationPanel.swift in Sources */,
 				D3385EEF290212EF0074E9D2 /* itsNewApp.swift in Sources */,
 				D36C474729048D5C00C58625 /* TextView.swift in Sources */,
 			);

@@ -9,7 +9,28 @@ import SwiftUI
 
 struct NewsFeed: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("NewsFeedBg")
+                .ignoresSafeArea(.all)
+            VStack{
+                Header()
+                Spacer()
+                NavigationPanel()
+            }
+            .padding(.horizontal, 10)
+        }
+    }
+}
+
+struct Header: View {
+    var body: some View {
+        HStack{
+            LandingBigTextView(text: "InfluxNews")
+            Spacer()
+            Image(systemName: "bell")
+                .foregroundColor(.black)
+                .font(.title)
+        }.padding(.top, 10)
     }
 }
 

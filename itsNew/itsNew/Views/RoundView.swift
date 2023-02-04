@@ -53,9 +53,13 @@ struct NotLoginTextView: View {
 
 
 
-//struct RoundView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        
-//    }
-//}
+struct RoundView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        VStack{
+            NotLoginTextView(text: "hello")
+            SignUpButtonTextView(text: "Hello")
+        }
+        .padding(.horizontal, 20)
+    }
+}
