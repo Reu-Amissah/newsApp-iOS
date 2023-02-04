@@ -7,7 +7,9 @@
 - [x] User Authentication with Firebase, LogIn
 - [x] User Authentication with Firebase, Register
 - [x] Navigate to Homepage after Login
-- [ ] Navigate to Homepage after Register
+- [x] Navigate to Homepage after Register
+- [x] Navigation Panel UI
+- [x] Navigation functionality
 - [ ] Home Page/ Trending
 
 ## Figma
