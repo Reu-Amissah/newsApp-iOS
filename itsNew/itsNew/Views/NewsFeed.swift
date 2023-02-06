@@ -12,10 +12,12 @@ struct NewsFeed: View {
         ZStack{
             Color("NewsFeedBg")
                 .ignoresSafeArea(.all)
-            VStack{
-                Header()
-                Spacer()
-                NavigationPanel()
+            ZStack {
+                VStack{
+                    Header()
+                    Spacer()
+                }
+                Navigator()
             }
             .padding(.horizontal, 10)
         }
