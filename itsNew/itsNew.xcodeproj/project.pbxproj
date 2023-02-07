@@ -23,6 +23,7 @@
 		D390311F290A065E0031472F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D390311E290A065E0031472F /* FirebaseFirestore */; };
 		D3A45DF4290DCA910094BB72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */; };
 		D3DB074E2991C917006A50C2 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB074D2991C916006A50C2 /* Navigator.swift */; };
+		D3DB07502991CD2E006A50C2 /* HorizontalScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB074F2991CD2E006A50C2 /* HorizontalScroll.swift */; };
 		D3F6254B29072A4C00D93AD5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F6254A29072A4C00D93AD5 /* RoundView.swift */; };
 		D3FEBA58290F46AA00CAA369 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FEBA57290F46AA00CAA369 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		D36C474629048D5C00C58625 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		D3A45DF3290DCA900094BB72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3DB074D2991C916006A50C2 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		D3DB074F2991CD2E006A50C2 /* HorizontalScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScroll.swift; sourceTree = "<group>"; };
 		D3F6254A29072A4C00D93AD5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		D3FEBA57290F46AA00CAA369 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 				D31FF7952942C2FE00F1CD30 /* NewsFeed.swift */,
 				D3557F49298E909900D5F1BF /* NavigationPanel.swift */,
 				D3DB074D2991C916006A50C2 /* Navigator.swift */,
+				D3DB074F2991CD2E006A50C2 /* HorizontalScroll.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				D3F6254B29072A4C00D93AD5 /* RoundView.swift in Sources */,
 				D3385EF1290212EF0074E9D2 /* ContentView.swift in Sources */,
 				D3097F3D2904614D003DCB4D /* LoginView.swift in Sources */,
+				D3DB07502991CD2E006A50C2 /* HorizontalScroll.swift in Sources */,
 				D3557F4A298E909900D5F1BF /* NavigationPanel.swift in Sources */,
 				D3385EEF290212EF0074E9D2 /* itsNewApp.swift in Sources */,
 				D36C474729048D5C00C58625 /* TextView.swift in Sources */,

@@ -13,9 +13,12 @@ struct NewsFeed: View {
             Color("NewsFeedBg")
                 .ignoresSafeArea(.all)
             ZStack {
-                VStack{
-                    Header()
-                    Spacer()
+                ScrollView{
+                    VStack{
+                        Header()
+                        HorizontalScroll()
+                        
+                    }
                 }
                 Navigator()
             }
