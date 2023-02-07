@@ -17,9 +17,18 @@ struct NewsFeed: View {
                     VStack{
                         Header()
                         HorizontalScroll()
-                        
+                        Text("hello world")
+                        Text("Hi world")
+                        Text("h world")
+                        Text("ee world")
+                        Text("kahhl world")
+                            .frame(height: 650)
+                        Text("ks world")
+                        Text("aa world")
+                        Text("aasd world")
                     }
                 }
+                .padding(.bottom, 70)
                 Navigator()
             }
             .padding(.horizontal, 10)
