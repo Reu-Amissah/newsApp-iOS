@@ -16,21 +16,12 @@ struct NewsFeed: View {
             //NewsFeed View (content)
             ZStack {
                 ScrollView{
-                    VStack{
+                    VStack (spacing: 10){
                         Header()
                         HorizontalScroll()
-                        Text("hello world")
-                        Text("Hi world")
-                        Text("h world")
-                        Text("ee world")
-                        Text("kahhl world")
-                            .frame(height: 650)
-                        Text("ks world")
-                        Text("aa world")
-                        Text("aasd world")
+                        NewsHighlightViewLarge()
                     }
                 }
-                .padding(.bottom, 70)
                 
                 //Navigtor View
                 Navigator()
