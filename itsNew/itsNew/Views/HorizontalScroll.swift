@@ -25,7 +25,7 @@ struct HorizontalScroll: View {
                 HorizontalTextView(text: "Politics")
                 HorizontalTextView(text: "Biology")
             }
-            .padding(5)
+            .padding(7)
             .background(
                 Color("inputFieldBackgroundColor")
             )
