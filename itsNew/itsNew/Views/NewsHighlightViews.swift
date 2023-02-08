@@ -11,14 +11,11 @@ struct NewsHighlightViewLarge: View {
     var body: some View {
         ZStack {
             NewsHightlightBgImage()
-            GeometryReader{ geometry in
-                VStack {
-                    NewsHightlightLabel()
-                        .frame(width: geometry.size.width * 1, alignment: .leading)
-                    Spacer()
-                    NewsHightlightDescription()
-                        .frame(width: geometry.size.width * 1, alignment: .leading)
-                }
+            VStack {
+                NewsHightlightLabel()
+                    .frame(alignment: .leading)
+                Spacer()
+                NewsHightlightDescription()
             }
         }
         .frame(height: 300)
@@ -39,21 +36,7 @@ struct NewsHightlightBgImage: View {
     }
 }
 
-struct NewsHightlightDescription: View {
-    var body: some View {
-        Text("Hello World")
-            .frame(width: .infinity)
-        
-    }
-}
 
-struct NewsHightlightLabel: View {
-    var body: some View {
-        Text("Hello World")
-            .frame(width: .infinity)
-        
-    }
-}
 
 struct NewsHighlightViews_Previews: PreviewProvider {
     static var previews: some View {

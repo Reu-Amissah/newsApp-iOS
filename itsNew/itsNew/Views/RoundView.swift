@@ -51,6 +51,22 @@ struct NotLoginTextView: View {
        }
 }
 
+struct NewsHightlightLabel: View {
+    var body: some View {
+        Text("Hello label")
+//            .frame(alignment: .leading)
+        
+    }
+}
+
+struct NewsHightlightDescription: View {
+    var body: some View {
+        Text("Hello World")
+            .frame(maxWidth: .infinity, alignment: .leading)
+        
+    }
+}
+
 
 
 struct RoundView_Previews: PreviewProvider {
@@ -59,6 +75,8 @@ struct RoundView_Previews: PreviewProvider {
         VStack{
             NotLoginTextView(text: "hello")
             SignUpButtonTextView(text: "Hello")
+            NewsHightlightLabel()
+            NewsHightlightDescription()
         }
         .padding(.horizontal, 20)
     }
